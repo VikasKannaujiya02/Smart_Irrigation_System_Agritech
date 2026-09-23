@@ -1,0 +1,44 @@
+{
+  "all_targets_horizon_24": [
+    {
+      "version": "ga_optimized_hybrid_v1",
+      "config": {
+        "artifact_path": "HYBRID TCN + LSTM MODEL/Models/GA_Optimized_Hybrid.keras"
+      },
+      "created_at": "2026-07-27T00:00:00",
+      "is_active": false,
+      "target": "all_targets",
+      "horizon": 24,
+      "metrics": {
+        "selection_status": "GA Optimized production model",
+        "validation_status": "Runtime Validation Required",
+        "source": "HYBRID TCN + LSTM MODEL/Models/GA_Optimized_Hybrid.keras"
+      },
+      "model_path": "HYBRID TCN + LSTM MODEL/Models/GA_Optimized_Hybrid.keras",
+      "model_type": "hybrid_keras"
+    },
+    {
+      "version": "ga_gat_tcn_lstm_v1",
+      "config": {
+        "artifact_path": "HYBRID TCN + LSTM MODEL/Models/FINAL_GA_GAT_TCN_LSTM.pth",
+        "scaler_path": "HYBRID TCN + LSTM MODEL/Models/FINAL_GA_feature_scaler.pkl",
+        "input_features": 7,
+        "input_window": 24,
+        "outputs": 2,
+        "horizons": ["1h", "6h", "12h", "24h", "168h"]
+      },
+      "created_at": "2026-08-27T21:07:00",
+      "is_active": true,
+      "target": "all_targets",
+      "horizon": 24,
+      "metrics": {
+        "selection_status": "FINAL_GA_GAT_TCN_LSTM production model",
+        "overall_mae": 1.1583,
+        "overall_rmse": 1.6705,
+        "overall_r2": 0.8214
+      },
+      "model_path": "HYBRID TCN + LSTM MODEL/Models/FINAL_GA_GAT_TCN_LSTM.pth",
+      "model_type": "pytorch"
+    }
+  ]
+}

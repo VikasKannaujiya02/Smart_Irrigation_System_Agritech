@@ -1,0 +1,69 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+#include <Arduino.h>
+
+// Protocol constants
+#define PROTOCOL_VERSION 1
+#define MAX_PAYLOAD_BYTES 180
+#define HEADER_WITHOUT_CRC_BYTES 14
+#define CRC_BYTES 2
+#define MAX_PACKET_BYTES 196
+#define BROADCAST_DEVICE_ID 0xFFFF
+#define GATEWAY_DEVICE_ID 0x0001
+#define PUMP_CONTROLLER_DEVICE_ID 0x0004
+#define DEFAULT_ACK_TIMEOUT_MS 2000
+#define DEFAULT_MAX_RETRIES 3
+#define DEFAULT_HEARTBEAT_INTERVAL_MS 60000
+
+// Packet types
+#define PACKET_TYPE_HELLO 1
+#define PACKET_TYPE_HEARTBEAT 2
+#define PACKET_TYPE_SENSOR_DATA 3
+#define PACKET_TYPE_NPK_DATA 4
+#define PACKET_TYPE_PUMP_STATUS 5
+#define PACKET_TYPE_COMMAND 6
+#define PACKET_TYPE_ACK 7
+#define PACKET_TYPE_ERROR 8
+#define PACKET_TYPE_CONFIG 9
+#define PACKET_TYPE_PING 10
+#define PACKET_TYPE_PONG 11
+
+// Command types
+#define COMMAND_TYPE_MOTOR_ON 1
+#define COMMAND_TYPE_MOTOR_OFF 2
+#define COMMAND_TYPE_REQUEST_STATUS 3
+#define COMMAND_TYPE_SYNC_TIME 4
+#define COMMAND_TYPE_RESTART_DEVICE 5
+#define COMMAND_TYPE_UPDATE_CONFIG 6
+#define COMMAND_TYPE_EMERGENCY_STOP 7
+
+// Pin definitions
+#define LORA_SS 15  // D8
+#define LORA_RST 16 // D0
+#define LORA_DIO0 5 // D1
+#define RELAY_PIN 4 // D2
+#define MANUAL_SWITCH_PIN -1 // Disabled: D5 is used by LoRa SCK
+#define PUMP_FEEDBACK_PIN -1 // Disabled: D7 is used by LoRa MOSI
+#define STATUS_LED_PIN 2 // D4
+#define EMERGENCY_STOP_PIN -1 // Disabled: D2 is used for relay control
+
+// LoRa settings
+#define LORA_FREQUENCY 868E6
+#define LORA_SPREADING_FACTOR 7
+#define LORA_SIGNAL_BANDWIDTH 125E3
+#define LORA_CODING_RATE 5
+#define LORA_POWER 20
+#define LORA_SYNC_WORD 0x12
+#define RELAY_ACTIVE_LEVEL LOW
+#define RELAY_INACTIVE_LEVEL HIGH
+
+// Pump settings
+#define MAX_PUMP_RUNTIME_MS 300000UL // 5 minutes
+#define PUMP_FEEDBACK_DEBOUNCE_MS 500
+#define DRY_RUN_CHECK_INTERVAL_MS 30000
+
+// Watchdog settings
+#define WATCHDOG_TIMEOUT_MS 8000
+
+#endif

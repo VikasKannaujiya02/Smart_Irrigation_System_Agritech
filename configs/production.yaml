@@ -1,0 +1,80 @@
+project:
+  name: "AI Smart Irrigation Digital Twin"
+  environment: "production"
+
+hardware:
+  gateway: "Raspberry Pi 4"
+  lora_gateway: "LoRa SX1278"
+  sensor_node:
+    board: "Arduino UNO"
+    lora: "LoRa SX1278 V1.0"
+    sensors:
+      - "Soil Moisture Sensor"
+      - "DHT22"
+      - "Battery Monitoring"
+  npk_node:
+    board: "Arduino UNO"
+    lora: "LoRa SX1278 V1.0"
+    interfaces:
+      - "RS485 TTL"
+    sensors:
+      - "7 in 1 NPK Sensor"
+      - "Battery Monitoring"
+  pump_controller:
+    board: "Arduino UNO"
+    lora: "LoRa SX1278 V1.2"
+    controls:
+      - "Relay"
+      - "Manual Switch"
+      - "Pump Feedback"
+
+communication:
+  ack_required: true
+  retry_count: 3
+  heartbeat_interval_seconds: 60
+  packet_timeout_ms: 2000
+  crc_required: true
+  duplicate_detection_window: 128
+
+database:
+  sqlite_path: "data/sqlite/irrigation.db"
+  backup_directory: "data/sqlite/backups"
+  pool_size: 4
+  timeout_seconds: 30
+  integrity_check_on_startup: true
+  automatic_backup_enabled: true
+
+logging:
+  level: "WARNING"
+  directory: "logs"
+  file_max_bytes: 104857600
+  file_backup_count: 20
+
+weather:
+  provider: "openweathermap"
+  api_key: ""
+  base_url: "https://api.openweathermap.org/data/2.5"
+  timeout_seconds: 10
+  retries: 3
+  latitude: 0.0
+  longitude: 0.0
+  cache_dir: "data/weather_cache"
+  cache_ttl_seconds: 1800
+  rain_threshold_probability: 50.0
+  rain_threshold_volume: 2.0
+  rain_time_window_hours: 24
+  critical_soil_moisture_threshold: 20.0
+
+health:
+  check_interval_seconds: 60
+  enable_diagnostics: true
+
+ota:
+  enabled: true
+  server_url: "https://ota.example.com"
+  check_interval_hours: 24
+
+remote_config:
+  enabled: true
+  server_url: "https://config.example.com"
+  poll_interval_seconds: 300

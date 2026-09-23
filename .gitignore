@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+venv/
+env/
+.env
+.venv
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Database & data files
+*.db
+*.sqlite
+*.sqlite3
+raspberry_pi/data/uploads/
+
+# Logs
+*.log
+logs/
+
+# ML model weights (large binary files — add manually if needed)
+*.pt
+*.pth
+*.h5
+*.keras
+*.onnx
+*.tflite
+*.pkl
+*.pickle
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Secrets / keys
+.env
+*.env
+*.key
+secrets.json

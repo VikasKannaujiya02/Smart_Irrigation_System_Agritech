@@ -1,0 +1,28 @@
+
+# Weather API dependencies
+requests>=2.31.0
+urllib3>=2.0.0
+PyYAML>=6.0
+
+# Data processing dependencies
+numpy>=1.24.0
+pandas>=2.0.0
+pyarrow>=14.0.0
+
+# AI/ML dependencies
+tensorflow>=2.15.0
+xgboost>=2.0.0
+scikit-learn>=1.3.0
+scipy>=1.10.0
+
+# Database dependencies (already present)
+# Add any other dependencies here
+
+# Dashboard API dependencies
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+python-multipart>=0.0.6
+
+# Analytics/export dependencies
+fpdf2>=2.7.0
