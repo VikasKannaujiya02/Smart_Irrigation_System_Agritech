@@ -49,15 +49,15 @@ Built specifically for rugged environments, it guarantees connectivity via **LoR
 ## 🧱 Architecture Diagram
 
 ```mermaid
-graph TD;
-    subgraph Edge Nodes (Field)
-        S1[Sensor Node 1 - Arduino] -->|LoRa SX1278| Gateway
-        S2[Sensor Node 2 - ESP8266] -->|LoRa SX1278| Gateway
-        P1[Pump Controller] <-- LoRa SX1278 --> Gateway
+graph TD
+    subgraph Edge Nodes
+        S1[Sensor Node 1] --> GW[Gateway LoRa]
+        S2[Sensor Node 2] --> GW[Gateway LoRa]
+        P1[Pump Controller] <--> GW[Gateway LoRa]
     end
     
-    subgraph Central Hub (Raspberry Pi 4)
-        Gateway[LoRa Interface module] <--> O[System Orchestrator]
+    subgraph Central Hub
+        GW[Gateway LoRa] <--> O[System Orchestrator]
         O <--> DB[(SQLite DB)]
         O <--> AI[AI Engine / Models]
         O <--> W[Weather Service]
@@ -131,20 +131,6 @@ npm run dev
 ```
 
 The frontend can be accessed simultaneously at `http://localhost:5173`.
-
----
-
-## 📷 Screenshots
-
-| Dashboard (English) | Plant Disease (Hindi) |
-| :---: | :---: |
-| <img src="docs/screens/dashboard.png" width="400"/> | <img src="docs/screens/disease_hi.png" width="400"/> |
-
-| Pest Detection & Bounding Boxes | Analytics & Water Saving |
-| :---: | :---: |
-| <img src="docs/screens/pest.png" width="400"/> | <img src="docs/screens/analytics.png" width="400"/> |
-
-*(Note: Add screenshot assets to `docs/screens/` directory to enable images).*
 
 ---
 
